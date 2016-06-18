@@ -15,7 +15,6 @@
 import sys
 import re
 import time
-import operator
 import enchant
 
 from optparse import OptionParser, OptionGroup

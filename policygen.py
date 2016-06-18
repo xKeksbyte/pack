@@ -10,7 +10,6 @@
 #
 # Please see the attached LICENSE file for additional licensing information.
 
-import sys, string, random
 import datetime
 from optparse import OptionParser, OptionGroup
 import itertools

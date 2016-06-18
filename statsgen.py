@@ -10,10 +10,8 @@
 #
 # Please see the attached LICENSE file for additional licensing information.
 
-import sys
-import re, operator, string
+import operator, string
 from optparse import OptionParser, OptionGroup
-import time
 
 VERSION = "0.0.3"
 

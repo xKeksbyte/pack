@@ -10,10 +10,8 @@
 #
 # Please see the attached LICENSE file for additional licensing information.
 
-import sys
 import csv
 import datetime
-from operator import itemgetter
 from optparse import OptionParser, OptionGroup
 
 VERSION = "0.0.3"
