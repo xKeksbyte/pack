@@ -72,13 +72,13 @@ class StatsGen:
                 advancedmask_string += "?d"
                 if not simplemask or not simplemask[-1] == 'digit': simplemask.append('digit')
 
-            elif letter in string.lowercase:
+            elif letter in string.ascii_lowercase:
                 lower += 1
                 advancedmask_string += "?l"
                 if not simplemask or not simplemask[-1] == 'string': simplemask.append('string')
 
 
-            elif letter in string.uppercase:
+            elif letter in string.ascii_uppercase:
                 upper += 1
                 advancedmask_string += "?u"
                 if not simplemask or not simplemask[-1] == 'string': simplemask.append('string')
@@ -119,8 +119,7 @@ class StatsGen:
     def generate_stats(self, filename):
         """ Generate password statistics. """
 
-        f = open(filename,'r')
-
+        f = open(filename, 'r', encoding="latin-1", errors='ignore')
         for password in f:
             password = password.rstrip('\r\n')
 
@@ -175,16 +174,16 @@ class StatsGen:
     def print_stats(self):
         """ Print password statistics. """
 
-        print("[+] Analyzing %d%% (%d/%d) of passwords" % (self.filter_counter*100/self.total_counter, self.filter_counter, self.total_counter))
+        print("[+] Analyzing %d%% (%d/%d) of passwords" % (self.filter_counter*100//self.total_counter, self.filter_counter, self.total_counter))
         print("    NOTE: Statistics below is relative to the number of analyzed passwords, not total number of passwords")
         print("\n[*] Length:")
         for (length,count) in sorted(iter(self.stats_length.items()), key=operator.itemgetter(1), reverse=True):
-            if self.hiderare and not count*100/self.filter_counter > 0: continue
+            if self.hiderare and not count*100//self.filter_counter > 0: continue
             print("[+] %25d: %02d%% (%d)" % (length, count*100/self.filter_counter, count))
 
         print("\n[*] Character-set:")
         for (char,count) in sorted(iter(self.stats_charactersets.items()), key=operator.itemgetter(1), reverse=True):
-            if self.hiderare and not count*100/self.filter_counter > 0: continue
+            if self.hiderare and not count*100//self.filter_counter > 0: continue
             print("[+] %25s: %02d%% (%d)" % (char, count*100/self.filter_counter, count))
 
         print("\n[*] Password complexity:")
@@ -195,13 +194,13 @@ class StatsGen:
 
         print("\n[*] Simple Masks:")
         for (simplemask,count) in sorted(iter(self.stats_simplemasks.items()), key=operator.itemgetter(1), reverse=True):
-            if self.hiderare and not count*100/self.filter_counter > 0: continue
-            print("[+] %25s: %02d%% (%d)" % (simplemask, count*100/self.filter_counter, count))
+            if self.hiderare and not count*100//self.filter_counter > 0: continue
+            print("[+] %25s: %02d%% (%d)" % (simplemask, count*100//self.filter_counter, count))
 
         print("\n[*] Advanced Masks:")
         for (advancedmask,count) in sorted(iter(self.stats_advancedmasks.items()), key=operator.itemgetter(1), reverse=True):
-            if count*100/self.filter_counter > 0:
-                print("[+] %25s: %02d%% (%d)" % (advancedmask, count*100/self.filter_counter, count))
+            if count*100//self.filter_counter > 0:
+                print("[+] %25s: %02d%% (%d)" % (advancedmask, count*100//self.filter_counter, count))
 
             if self.output_file:
                 self.output_file.write("%s,%d\n" % (advancedmask,count))
