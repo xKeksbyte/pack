@@ -83,7 +83,7 @@ class PolicyGen:
                 total_length_count += 1
                 total_length_complexity += mask_complexity
 
-                # Count charachter types in a mask
+                # Count character types in a mask
                 for char in mask[1:].split("?"):
                     if char == "l": lowercount += 1
                     elif char == "u": uppercount += 1
