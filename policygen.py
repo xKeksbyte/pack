@@ -93,14 +93,14 @@ class PolicyGen:
                 # Filter according to password policy
                 # NOTE: Perform exact opposite (XOR) operation if noncompliant
                 #       flag was set when calling the function.
-                if ((self.minlower   == None or lowercount   >= self.minlower) and \
-                    (self.maxlower   == None or lowercount   <= self.maxlower) and \
-                    (self.minupper   == None or uppercount   >= self.minupper) and \
-                    (self.maxupper   == None or uppercount   <= self.maxupper) and \
-                    (self.mindigit   == None or digitcount   >= self.mindigit) and \
-                    (self.maxdigit   == None or digitcount   <= self.maxdigit) and \
-                    (self.minspecial == None or specialcount >= self.minspecial) and \
-                    (self.maxspecial == None or specialcount <= self.maxspecial)) ^ noncompliant :
+                if ((self.minlower   is None or lowercount   >= self.minlower) and
+                    (self.maxlower   is None or lowercount   <= self.maxlower) and
+                    (self.minupper   is None or uppercount   >= self.minupper) and
+                    (self.maxupper   is None or uppercount   <= self.maxupper) and
+                    (self.mindigit   is None or digitcount   >= self.mindigit) and
+                    (self.maxdigit   is None or digitcount   <= self.maxdigit) and
+                    (self.minspecial is None or specialcount >= self.minspecial) and
+                    (self.maxspecial is None or specialcount <= self.maxspecial)) ^ noncompliant:
 
                     sample_length_count += 1
                     sample_length_complexity += mask_complexity
@@ -118,7 +118,6 @@ class PolicyGen:
 
             total_complexity += total_length_complexity
             sample_complexity += sample_length_complexity
-
 
         total_time = total_complexity//self.pps
         total_time_human = ">1 year" if total_time > 60*60*24*365 else str(datetime.timedelta(seconds=total_time))
