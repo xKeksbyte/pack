@@ -106,7 +106,7 @@ class PolicyGen:
                     sample_length_complexity += mask_complexity
 
                     if self.showmasks:
-                        mask_time = mask_complexity/self.pps      
+                        mask_time = mask_complexity//self.pps
                         time_human = ">1 year" if mask_time > 60*60*24*365 else str(datetime.timedelta(seconds=mask_time))
                         print("[{:>2}] {:<30} [l:{:>2} u:{:>2} d:{:>2} s:{:>2}] [{:>8}]  ".format(length, mask, lowercount,uppercount,digitcount,specialcount, time_human))
 
@@ -120,11 +120,11 @@ class PolicyGen:
             sample_complexity += sample_length_complexity
 
 
-        total_time = total_complexity/self.pps
+        total_time = total_complexity//self.pps
         total_time_human = ">1 year" if total_time > 60*60*24*365 else str(datetime.timedelta(seconds=total_time))
         print("[*] Total Masks:  %d Time: %s" % (total_count, total_time_human))
 
-        sample_time = sample_complexity/self.pps
+        sample_time = sample_complexity//self.pps
         sample_time_human = ">1 year" if sample_time > 60*60*24*365 else str(datetime.timedelta(seconds=sample_time))
         print("[*] Policy Masks: %d Time: %s" % (sample_count, sample_time_human))
 
