@@ -62,9 +62,9 @@ class MaskGen:
             if mask == "": continue
 
             mask_occurrence = int(occurrence)
-            mask_length = len(mask)/2
+            mask_length = len(mask)//2
             mask_complexity = self.getcomplexity(mask)
-            mask_time = mask_complexity/self.pps
+            mask_time = mask_complexity//self.pps
 
             self.total_occurrence += mask_occurrence
 
@@ -83,7 +83,7 @@ class MaskGen:
                 self.masks[mask]['occurrence'] = mask_occurrence
                 self.masks[mask]['complexity'] = 1 - mask_complexity
                 self.masks[mask]['time'] = mask_time
-                self.masks[mask]['optindex'] = 1 - mask_complexity/mask_occurrence
+                self.masks[mask]['optindex'] = 1 - (mask_complexity//mask_occurrence)
 
     def generate_masks(self,sorting_mode):
         """ Generate optimal password masks sorted by occurrence, complexity or optindex """
@@ -115,7 +115,7 @@ class MaskGen:
 
         print("[*] Finished generating masks:")
         print("    Masks generated: %s" % sample_count)
-        print("    Masks coverage:  %d%% (%d/%d)" % (sample_occurrence*100/self.total_occurrence,sample_occurrence,self.total_occurrence))
+        print("    Masks coverage:  %d%% (%d/%d)" % (sample_occurrence*100//self.total_occurrence,sample_occurrence,self.total_occurrence))
         time_human = ">1 year" if sample_time > 60*60*24*365 else str(datetime.timedelta(seconds=sample_time))
         print("    Masks runtime:   %s" % time_human)
 
