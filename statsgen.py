@@ -52,7 +52,8 @@ class StatsGen:
         self.maxlower = None
         self.maxspecial = None
 
-    def analyze_password(self, password):
+    @staticmethod
+    def analyze_password(password):
 
         # Password length
         pass_length = len(password)
