@@ -141,7 +141,8 @@ class StatsGen:
         for password in f:
             password = password.rstrip('\r\n')
 
-            if len(password) == 0:
+            # if the password is empty, continue
+            if not password:
                 continue
 
             self.total_counter += 1
