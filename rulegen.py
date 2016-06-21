@@ -1054,7 +1054,12 @@ if __name__ == "__main__":
         parser.error("no passwords file specified")
         exit(1)
 
-    rulegen = RuleGen(language="en", providers=options.providers, basename=options.basename, threads=options.threads)
+    try:
+        rulegen = RuleGen(language="en", providers=options.providers, basename=options.basename, threads=options.threads)
+    except enchant.errors.DictNotFoundError:
+        print("[-] Cannot find a dictionary for specified language. Please install it and try again.")
+        print("[*] Hint: Usually this dictionary resides within an aspell / myspell package.")
+        exit(-1)
 
     # Finetuning word generation
     rulegen.max_word_dist=options.maxworddist
