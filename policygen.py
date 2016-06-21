@@ -36,7 +36,8 @@ class PolicyGen:
         self.pps = 1000000000
         self.showmasks = False
 
-    def getcomplexity(self, mask):
+    @staticmethod
+    def getcomplexity(mask):
         """ Return mask complexity. """
         count = 1
         for char in mask[1:].split("?"):
