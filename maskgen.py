@@ -62,7 +62,7 @@ class MaskGen:
 
     def loadmasks(self, filename):
         """ Load masks and apply filters. """
-        mask_reader = csv.reader(open(args[0], 'r'), delimiter=',', quotechar='"')
+        mask_reader = csv.reader(open(filename, 'r'), delimiter=',', quotechar='"')
 
         for (mask, occurrence) in mask_reader:
 
@@ -304,4 +304,3 @@ if __name__ == "__main__":
 
         print("[*] Sorting masks by their [%s]." % sort_mode)
         maskgen.generate_masks(sort_mode)
-        
