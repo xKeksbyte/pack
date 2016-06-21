@@ -41,7 +41,8 @@ class MaskGen:
         # Counter for total masks coverage
         self.total_occurrence = 0
 
-    def getcomplexity(self, mask):
+    @staticmethod
+    def getcomplexity(mask):
         """ Return mask complexity. """
         count = 1
         for char in mask[1:].split("?"):
