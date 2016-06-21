@@ -732,7 +732,7 @@ class RuleGen:
 
         # Skip passwords with less than 25% of alpha character
         # TODO: Make random word detection more reliable based on word entropy.
-        elif len([c for c in password if c.isalpha()]) < len(password)/4:
+        elif len([c for c in password if c.isalpha()]) < len(password)//4:
             if self.verbose and not self.quiet:print("[!] %s => {skipping alpha less than 25%%} => %s" % (password,password))
             self.special_stats_total += 1
             return False
