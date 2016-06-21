@@ -890,7 +890,7 @@ class RuleGen:
 
         # Continue with the main thread
 
-        f = open(passwords_file,'r')
+        f = open(passwords_file, 'r', encoding="latin-1", errors='ignore')
 
         password_count = 0
         analysis_start = time.time()
