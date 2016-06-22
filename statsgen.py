@@ -132,7 +132,7 @@ class StatsGen:
         else:
             charset = 'all'
 
-        return (pass_length, charset, simplemask_string, advancedmask_string, policy)
+        return pass_length, charset, simplemask_string, advancedmask_string, policy
 
     def generate_stats(self, filename):
         """ Generate password statistics. """
@@ -287,7 +287,7 @@ if __name__ == "__main__":
     if options.maxlength is not None:
         statsgen.maxlength = options.maxlength
     if options.charsets is not None:
-        statsgen.charsets    = [x.strip() for x in options.charsets.split(',')]
+        statsgen.charsets = [x.strip() for x in options.charsets.split(',')]
     if options.simplemasks is not None:
         statsgen.simplemasks = [x.strip() for x in options.simplemasks.split(',')]
 
