@@ -229,7 +229,8 @@ class RuleGen:
 
     ############################################################################
     # Calculate Levenshtein edit path matrix
-    def levenshtein(self, word, password):
+    @staticmethod
+    def levenshtein(word, password):
         matrix = []
 
         # Generate and populate the initial matrix
@@ -278,7 +279,8 @@ class RuleGen:
 
         return previous_row[-1]
 
-    def levenshtein_print(self, matrix, word, password):
+    @staticmethod
+    def levenshtein_print(matrix, word, password):
         """ Print word X password matrix """
         print("      %s" % "  ".join(list(word)))
         for i, row in enumerate(matrix):
@@ -480,13 +482,15 @@ class RuleGen:
 
     ############################################################################
     # Hashcat specific offset definition 0-9,A-Z
-    def int_to_hashcat(self, n):
+    @staticmethod
+    def int_to_hashcat(n):
         if n < 10:
             return n
         else:
             return chr(65 + n - 10)
 
-    def hashcat_to_int(self, n):
+    @staticmethod
+    def hashcat_to_int(n):
         if n.isdigit():
             return int(n)
         else:
