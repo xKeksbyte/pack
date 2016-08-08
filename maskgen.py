@@ -107,7 +107,7 @@ class MaskGen:
         if self.showmasks:
             print("[L:] Mask:                          [ Occ:  ] [ Time:  ]")
 
-        for mask in sorted(list(self.masks.keys()), key=lambda m: self.masks[m][sorting_mode], reverse=True):
+        for mask in sorted(self.masks.keys(), key=lambda m: self.masks[m][sorting_mode], reverse=True):
 
             if self.showmasks:
                 time_human = ">1 year" if self.masks[mask]['time'] > 60*60*24*365 \
