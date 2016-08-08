@@ -217,7 +217,7 @@ if __name__ == "__main__":
     if options.minspecial is not None:
         policygen.minspecial = options.minspecial
     if options.maxdigit is not None:
-        policygen.maxdigits = options.maxdigit
+        policygen.maxdigit = options.maxdigit
     if options.maxlower is not None:
         policygen.maxlower = options.maxlower
     if options.maxupper is not None:
