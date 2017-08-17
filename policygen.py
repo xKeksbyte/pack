@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # PolicyGen - Analyze and Generate password masks according to a password policy
 #
 # This tool is part of PACK (Password Analysis and Cracking Kit)

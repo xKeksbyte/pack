@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # MaskGen - Generate Password Masks
 #
 # This tool is part of PACK (Password Analysis and Cracking Kit)
