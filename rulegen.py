@@ -152,7 +152,9 @@ class RuleGen:
         # Truncate word at position N
         self.hashcat_rule["'"] = lambda x, y: x[:y]
         # Delete M characters, starting at position N
-        self.hashcat_rule["x"] = lambda x, y, z: x[:y] + x[y + z:]
+        self.hashcat_rule["O"] = lambda x, y, z: x[:y] + x[y + z:]
+        # Extracts M characters, starting at position N
+        self.hashcat_rule["'"] = lambda x, y, z: x[y:y+z]
         # Purge all instances of X
         self.hashcat_rule["@"] = lambda x, y: x.replace(y, '')
 
