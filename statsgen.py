@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # StatsGen - Password Statistical Analysis tool
 #
 # This tool is part of PACK (Password Analysis and Cracking Kit)
