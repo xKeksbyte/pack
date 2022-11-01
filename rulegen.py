@@ -1034,8 +1034,8 @@ class RuleGen:
                     password_count += 1
 
                     # Perform preliminary checks and add password to the queue
-                    if self.check_reversible_password(password):
-                        passwords_queue.put(password)
+                    #if self.check_reversible_password(password):
+                    passwords_queue.put(password)
 
         except (KeyboardInterrupt, SystemExit):
             print("\n[!] Rulegen was interrupted.")
